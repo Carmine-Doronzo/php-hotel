@@ -67,9 +67,9 @@ $hotels = [
         <tbody>
             <?php
 
-            for ($i = 0; $i < count($hotels); $i++) {
+            foreach ($hotels as $hotel ) {
 
-                $hotel = $hotels[$i];
+                //$hotel = $hotels[$i];
                 $hotelName = $hotel['name'];
                 $hotelDescription = $hotel['description'];
                 $hotelParking = $hotel['parking'];
