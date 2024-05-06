@@ -38,8 +38,11 @@ $hotels = [
         'distance_to_center' => 50
     ],
 
-];
 
+];
+$presentParking = $_GET['parking'];
+
+//var_dump($hotels);
 ?>
 
 <!DOCTYPE html>
@@ -53,6 +56,16 @@ $hotels = [
 </head>
 
 <body>
+
+    <form action="">
+        <select name="parking" id="">
+            <option value="0" selected>nessun filtro</option>
+            <option value="1">con parcheggio</option>
+            <option value="2">senza parcheggio</option>
+        </select>
+
+        <button>invia</button>
+    </form>
 
     <table class="table">
         <thead>
@@ -76,7 +89,7 @@ $hotels = [
                 $hotelVote = $hotel['vote'];
                 $hotelDistance = $hotel['distance_to_center'];
             ?>
-                <tr>
+                <tr class="<?php echo $presentParking === '2' && $hotelParking === true || $presentParking === '1' && $hotelParking === false ? 'd-none':'' ?>">
                     <th scope="row"> <?php echo $hotelName ?></th>
                     <td><?php echo $hotelDescription ?></td>
                     <td><?php echo $hotelParking === true ? '&check;' : '&cross;' ?></td>
