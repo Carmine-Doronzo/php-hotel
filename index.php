@@ -40,8 +40,8 @@ $hotels = [
 
 
 ];
-$presentParking = $_GET['parking'];
-$hotelVotePairing =intval($_GET['vote']);
+$presentParking = isset($_GET['parking']) ? $_GET['parking'] : "0";
+$hotelVotePairing = isset($_GET['vote']) ? intval($_GET['vote']) : 0 ;
 
 //var_dump($hotels);
 ?>
