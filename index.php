@@ -41,6 +41,7 @@ $hotels = [
 
 ];
 $presentParking = $_GET['parking'];
+$hotelVotePairing =intval($_GET['vote']);
 
 //var_dump($hotels);
 ?>
@@ -58,10 +59,21 @@ $presentParking = $_GET['parking'];
 <body>
 
     <form action="">
+        <label for="parking">parchggio</label>
         <select name="parking" id="">
             <option value="0" selected>nessun filtro</option>
             <option value="1">con parcheggio</option>
             <option value="2">senza parcheggio</option>
+        </select>
+
+        <label for="vote">stelle</label>
+        <select name="vote" id="">
+            <option value="0">nessun filtro</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
         </select>
 
         <button>invia</button>
@@ -89,7 +101,7 @@ $presentParking = $_GET['parking'];
                 $hotelVote = $hotel['vote'];
                 $hotelDistance = $hotel['distance_to_center'];
             ?>
-                <tr class="<?php echo $presentParking === '2' && $hotelParking === true || $presentParking === '1' && $hotelParking === false ? 'd-none':'' ?>">
+                <tr class="<?php echo $presentParking === '2' && $hotelParking === true || $hotelVote === $hotelVotePairing || $presentParking === '1' && $hotelParking === false || $hotelVote !== $hotelVotePairing ? 'd-none':'' ?>">
                     <th scope="row"> <?php echo $hotelName ?></th>
                     <td><?php echo $hotelDescription ?></td>
                     <td><?php echo $hotelParking === true ? '&check;' : '&cross;' ?></td>
