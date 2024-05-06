@@ -79,7 +79,7 @@ $hotels = [
                 <tr>
                     <th scope="row"> <?php echo $hotelName ?></th>
                     <td><?php echo $hotelDescription ?></td>
-                    <td><?php echo $hotelParking ?></td>
+                    <td><?php echo $hotelParking === true ? '&check;' : '&cross;' ?></td>
                     <td><?php echo $hotelVote ?></td>
                     <td><?php echo $hotelDistance ?></td>
                 </tr>
