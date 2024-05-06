@@ -101,7 +101,8 @@ $hotelVotePairing =intval($_GET['vote']);
                 $hotelVote = $hotel['vote'];
                 $hotelDistance = $hotel['distance_to_center'];
             ?>
-                <tr class="<?php echo $presentParking === '2' && $hotelParking === true || $hotelVote === $hotelVotePairing || $presentParking === '1' && $hotelParking === false || $hotelVote !== $hotelVotePairing ? 'd-none':'' ?>">
+           
+                <tr class="<?php echo $presentParking === '2' && $hotelParking === true || $presentParking === '1' && $hotelParking === false || $hotelVotePairing !== 0 && $hotelVotePairing !== $hotelVote ? 'd-none': "" ?>">
                     <th scope="row"> <?php echo $hotelName ?></th>
                     <td><?php echo $hotelDescription ?></td>
                     <td><?php echo $hotelParking === true ? '&check;' : '&cross;' ?></td>
@@ -110,7 +111,7 @@ $hotelVotePairing =intval($_GET['vote']);
                 </tr>
 
             <?php
-
+            
             }
             ?>
 
